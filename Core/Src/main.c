@@ -140,8 +140,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim)
 	}
 
 	GPIOD->ODR ^= (1<<13);
-
-	HAL_UART_Transmit(&huart6, speed_tx, 12, 100);
 }
 
 
