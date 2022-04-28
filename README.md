@@ -1,7 +1,7 @@
 # Motor-car-driver
 General description:
 - In this project, I use stm32 board to implement the driving system. The figure below shows the general operation of the system:
-![plot](system operation.png)
+![plot](system_operation.png)
 
 
 
