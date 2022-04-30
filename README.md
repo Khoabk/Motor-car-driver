@@ -63,5 +63,19 @@ To calculate the motor's spinning speed, **Vout** port is connected to an extern
 
 Because we have 4 wheels, hence, we need up to 4 external interrupt pins instead of 1. As shown in the code, every time an external interrupt pin goes form low to high the corresponding element in the **counter** array gets incremented. About how fast the count variable increases is in fact relative to how fast the wheel is spinning, this can be measured by using a timer, which will interrupt the system every 100 ms, the value of each counter's element is proprtional to the speed of the wheel, this value is sent to the controlling system via UART protocl, the counter's elements are assigned to 0 at every 100 ms.
 
-    
+    void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim)
+    {
+     int idx = 3;
+
+     for(int i = 0; i < 4; i++)
+     {
+      speed_tx[idx] = counter[i];
+      idx+= 2;
+      counter[i] = 0;
+     }
+
+     GPIOD->ODR ^= (1<<13);
+    }
+
+
 
