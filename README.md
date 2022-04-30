@@ -78,4 +78,6 @@ Because we have 4 wheels, hence, we need up to 4 external interrupt pins instead
     }
 
 
+Using DMA to send speed updates
 
+    HAL_UART_Transmit_DMA(&huart6, speed_tx, 12); //This code is placed in the main function
