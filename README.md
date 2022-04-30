@@ -25,4 +25,5 @@ Overall description:
 
   **The pulldown resistor is to assure the signal is low when the sensor fails to detect the ligh source.**
   
- 
+
+To capture
