@@ -26,4 +26,42 @@ Overall description:
   **The pulldown resistor is to assure the signal is low when the sensor fails to detect the ligh source.**
   
 
-To capture
+To calculate the motor's spinning speed, **Vout** port is connected to an external interrupt pin, as illstrated in the following code:
+
+      void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+      {
+          switch(GPIO_Pin)
+          {
+
+             case GPIO_PIN_0:
+             {
+              counter[0]++;
+              break;
+             }
+             case GPIO_PIN_2:
+             {
+              counter[1]++;
+              break;
+             }
+             case GPIO_PIN_4:
+             {
+              counter[2]++;
+              break;
+             }
+             case GPIO_PIN_6:
+             {
+              counter[3]++;
+              break;
+             }
+             default:
+              break;
+
+         }
+
+     }
+
+
+Because we have 4 wheels, hence, we need up to 4 external interrupt pins instead of 1. As shown in the code, every time an external interrupt pin goes form low to high the corresponding element in the **counter** array gets incremented. About how fast the count variable increases is in fact relative to how fast the wheel is spinning, this can be measured by using a timer, which will interrupt the system every 100 ms, the value of each counter's element is proprtional to the speed of the wheel, this value is sent to the controlling system via UART protocl, the counter's elements are assigned to 0 at every 100 ms.
+
+    
+
