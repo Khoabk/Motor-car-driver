@@ -15,4 +15,6 @@ Overall description:
   On the hardware implementation, there are 4 rotary encoders, each is responsible for one of the 4 wheels, a Disc with holes is equipped on the motor shaft of each wheel, the picture below illustrates the configuration of the rotary encoder and the disc.
   
 ![plot](Encoder.png) 
-<img src = "Encoder2.png" width = "300" height = "400">
+<img src = "Encoder2.png" width = "300" height = "350">
+
+
